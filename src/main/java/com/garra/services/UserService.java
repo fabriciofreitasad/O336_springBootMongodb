@@ -10,17 +10,15 @@ import com.garra.repository.UserRepository;
 
 @Service
 public class UserService {
+
+	@Autowired
+	private UserRepository repo;
 	
+	public List<User> findAll() {
+		return repo.findAll();
+	}
+}
 	//A camada *Service* contém a lógica de negócios da aplicação e 
 	//faz uso dos repositórios para acessar e manipular os dados.
 	//Ela é anotada com @Service e geralmente injeta os repositórios
 	//usando @Autowired
-	
-	@Autowired
-	private UserRepository repo;
-	
-	public List<User> findAll(){
-		return repo.findAll();
-	}
-
-}
