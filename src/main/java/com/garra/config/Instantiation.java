@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.garra.domain.Post;
 import com.garra.domain.User;
+import com.garra.dto.AuthorDTO;
 import com.garra.repository.PostRepository;
 import com.garra.repository.UserRepository;
 
@@ -36,10 +37,12 @@ public class Instantiation implements CommandLineRunner {
 		User alex = new User(null, "Alex Green", "alex@gmail.com");
 		User bob = new User(null, "Bob Grey", "bob@gmail.com");
 		
-		Post post1 = new Post(null, sdf.parse("21/03/2023"), "Partiu viagem","Vou viajar para São Paulo abraços!",maria);
-		Post post2 = new Post(null, sdf.parse("23/03/2023"), "Bom dia","Acordei feliz hoje",maria);
-		
 		userRepository.save(Arrays.asList(maria,alex,bob));
+		
+		Post post1 = new Post(null, sdf.parse("21/03/2023"), "Partiu viagem","Vou viajar para São Paulo abraços!", new AuthorDTO(maria));
+		Post post2 = new Post(null, sdf.parse("23/03/2023"), "Bom dia","Acordei feliz hoje",new AuthorDTO(maria));
+		
+		
 		postRepository.save(Arrays.asList(post1,post2));
 	
 	}
