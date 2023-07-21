@@ -1,5 +1,7 @@
 package com.garra.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +23,12 @@ public class PostService {
 		}
 		return user;
 		}
-	
+	public List<Post> findByTitle(String text){
+		return repo.findByTitleContainingIgnoreCase(text);
+		}
 	
 }
+
 	//A camada *Service* contém a lógica de negócios da aplicação e 
 	//faz uso dos repositórios para acessar e manipular os dados.
 	//Ela é anotada com @Service e geralmente injeta os repositórios

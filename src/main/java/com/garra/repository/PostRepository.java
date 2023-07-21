@@ -13,6 +13,8 @@ public interface PostRepository extends MongoRepository<User, String> {
 	void save(List<Post> asList);
 
 	Post findOne(String id);
+	
+	List<Post> findByTitleContainingIgnoreCase(String text);
 
 
 		
