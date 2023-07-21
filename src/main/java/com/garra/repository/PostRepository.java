@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import com.garra.domain.Post;
 import com.garra.domain.User;
 
 
-public interface UserRepository extends MongoRepository<User, String> {
+public interface PostRepository extends MongoRepository<User, String> {
 
-	void save(List<User> asList);
+	void save(List<Post> asList);
 
 
 		
