@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.garra.domain.User;
+import com.garra.dto.UserDTO;
 import com.garra.repository.UserRepository;
 import com.garra.services.exception.ObjectNotFoundException;
 
@@ -23,7 +24,14 @@ public class UserService {
 	public User findById(String id) {
 		Optional<User> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
-		
+	}
+	
+	public User insert(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(),objDto.getName(),objDto.getId());
 	}
 }
 	//A camada *Service* contém a lógica de negócios da aplicação e 
