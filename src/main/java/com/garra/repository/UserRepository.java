@@ -6,6 +6,8 @@ import com.garra.domain.User;
 
 
 public interface UserRepository extends MongoRepository<User, String> {
+
+
 		
 		//A camada *Repository* é responsável por acessar os dados e 
 		//realizar operações de persistência. Ela é implementada usando 
