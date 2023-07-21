@@ -12,6 +12,8 @@ public interface PostRepository extends MongoRepository<User, String> {
 
 	void save(List<Post> asList);
 
+	Post findOne(String id);
+
 
 		
 		//A camada *Repository* é responsável por acessar os dados e 
