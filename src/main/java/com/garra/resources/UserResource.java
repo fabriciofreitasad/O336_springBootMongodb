@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.garra.domain.Post;
 import com.garra.domain.User;
 import com.garra.dto.UserDTO;
 import com.garra.services.UserService;
@@ -61,6 +62,13 @@ public class UserResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@GetMapping(value = "/{id}/post")
+	public ResponseEntity<List<Post>> findposts(@PathVariable String id) {
+		User obj = service.findById(id);
+		return ResponseEntity.ok().body(obj.getPost());
+	}
+	
 }
 // A camada *Resource* (ou *Controller*) é responsável por expor
 // os endpoints da API e lidar com as requisições HTTP. Ela é
